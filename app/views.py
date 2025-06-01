@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-# Create your views here.
+from .models import Coupon
+from .serializers import CouponSerializer
+
+class CouponAPIViewk(APIView):
+    def get(self, request):
+        coupons = Coupon.objects.all()
+        serializer = CouponSerializer(coupons, many=True)
+        return Response({"coupons": serializer.data})

@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from .models import Coupon
 from .serializers import CouponSerializer
 
-class CouponAPIViewk(APIView):
+class CouponAPIView(APIView):
     def get(self, request):
         coupons = Coupon.objects.all()
         serializer = CouponSerializer(coupons, many=True)

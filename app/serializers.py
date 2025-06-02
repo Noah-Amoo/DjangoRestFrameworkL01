@@ -11,7 +11,7 @@ class CouponSerializer(serializers.Serializer):
         return Coupon.objects.create(**validated_data)
     
 
-    class ProductSerializer(serializers.ModelSerializer):
-        class Meta:
-            model = Product
-            fields = '__all__'
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = '__all__'

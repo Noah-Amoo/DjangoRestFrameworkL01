@@ -1,9 +1,10 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.viewsets import ModelViewSet
 
-from .models import Coupon
-from .serializers import CouponSerializer
+from .models import Coupon, Product
+from .serializers import CouponSerializer, ProductSerializer
 
 class CouponAPIView(APIView):
     def get(self, request):
@@ -16,3 +17,8 @@ class CouponAPIView(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+
+class ProductViewSet(ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer

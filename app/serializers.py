@@ -9,3 +9,6 @@ class CouponSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         return Coupon.objects.create(**validated_data)
+    
+
+    
